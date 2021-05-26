@@ -61,11 +61,25 @@ fxLayout.xs = "column">
 
       <br>
 
-      <button mat-raised-button color= "warn"
-      (click) = guardar()>
-          <mat-icon>save</mat-icon>
-          Guardar
-      </button>
+
+
+
+      <div fxLayout>
+        <button mat-raised-button color= "primary"
+        (click) = "guardar()">
+            <mat-icon>save</mat-icon>
+            Guardar
+        </button>
+        <span class="spacer"></span>
+
+        <button 
+        *ngIf="heroe.id"
+        (click) = "borrar()"
+        mat-raised-button color="warn">
+          <mat-icon>remove</mat-icon>
+          Borrar
+        </button>
+      </div>
   </div>
 
   <div fxFlex="50">

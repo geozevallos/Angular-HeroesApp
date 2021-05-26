@@ -48,7 +48,7 @@ export class AgregarComponent implements OnInit {
     if( !this.router.url.includes('editar')){
       return;
     }
-    
+
     this.activatedRoute.params.
       pipe(
         switchMap(({ id }) => this.heroesService.getHeroeById(id))
@@ -72,6 +72,13 @@ export class AgregarComponent implements OnInit {
           this.router.navigate(['/heroes/editar', heroe.id])
         })
     }
+  }
+
+  borrar(){
+    this.heroesService.eliminarHeroe(this.heroe.id!)
+    .subscribe(rpta => {
+      this.router.navigate(['/heroes'])
+    })
   }
 
 }
